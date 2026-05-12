@@ -1,8 +1,19 @@
 import {createPanoptesRoot, PanoptesRouterProvider} from "@knaw-huc/panoptes-react";
 import {createTranslate} from "./i18n/i18n.ts";
 import '@knaw-huc/panoptes-react/style.css';
+import '@knaw-huc/panoptes-react-blocks/style.css';
 import './css/theme.css'
 import './css/index.css'
+import {
+    ExternalLinkBlockRenderer,
+    JsonBlockRenderer, LabelBlockRenderer,
+    LinkBlockRenderer, MapBlockRenderer,
+    MarkdownBlockRenderer, ScreenBlockRenderer, ToggleBlockRenderer
+} from "@knaw-huc/panoptes-react-blocks";
+import DimensionsBlockRenderer from "./components/blocks/dimensions";
+import ExtentBlockRenderer from "./components/blocks/extent";
+import PersonBlockRenderer from "./components/blocks/person";
+import PageRangeBlockRenderer from "./components/blocks/pageRange";
 
 
 const panoptesUrl = '$VITE_PANOPTES_URL';
@@ -32,6 +43,18 @@ const root = createPanoptesRoot(document.getElementById('root')!, {
     dataset: getVar(panoptesDataset),
     translateFn: createTranslate(),
     blocks: new Map([
+        ["json", JsonBlockRenderer],
+        ["link", LinkBlockRenderer],
+        ["external-link", ExternalLinkBlockRenderer],
+        ["markdown", MarkdownBlockRenderer],
+        ["toggle", ToggleBlockRenderer],
+        ["screen", ScreenBlockRenderer],
+        ["label", LabelBlockRenderer],
+        ["map", MapBlockRenderer],
+        ["dimensions", DimensionsBlockRenderer],
+        ["extent", ExtentBlockRenderer],
+        ["person", PersonBlockRenderer],
+        ["pageRange", PageRangeBlockRenderer],
     ])
 });
 root.render(<PanoptesRouterProvider/>);

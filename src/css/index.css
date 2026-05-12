@@ -1,0 +1,11 @@
+.text-white {
+    font-weight: 350;
+}
+
+.font-semibold {
+    font-family: var(--font-serif);
+}
+
+header {
+    font-family: var(--font-serif);
+}

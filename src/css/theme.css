@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 html {
-    --color-brand: #73a1bf;
-    --color-brand-500: #73a1bf;
+    --color-brand: #265955;
+    --color-brand-500: #265955;
     --color-header-text: #fff;
-    --color-support-001: #73a1bf;
-    --color-support-002: #73a1bf;
-    --color-support-003: #73a1bf;
-    --default-font-family: sans-serif;
+    --color-support-001: #b28248;
+    --color-support-002: #b28248;
+    --color-support-003: #b28248;
+    /*--default-font-family: "Philosopher", serif;*/
+    --font-sans: "Georgia", sans-serif;
+    --font-serif: "Philosopher", serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
 }

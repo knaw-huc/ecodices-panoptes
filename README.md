@@ -1,3 +1,3 @@
-# React + Panoptes
+# eCodicesNL Browser
 
-This template provides a minimal setup to get Panoptes working with Vite.
+This is the front-end for the manuscript browser of eCodicesNL.
