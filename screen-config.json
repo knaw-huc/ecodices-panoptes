@@ -1,0 +1,224 @@
+{
+  "id": "manuscript-details",
+  "screenType": "normal",
+  "globals": {
+  },
+  "tabs": [
+  ],
+  "links": [
+  ],
+  "actions": [
+  ],
+  "form": {
+    "rows": [
+      {
+        "displayType": "group",
+        "groupId": "object",
+        "columns": [
+          {
+            "elements": [
+              {
+                "value": "$data#$.Title.title['`@value']",
+                "type": "label"
+              },
+              {
+                "value": "$data#$.Source.MsIdentifier.settlement['`@value']",
+                "type": "label"
+              },
+              {
+                "value": "$data#$.Source.MsIdentifier.repository['`@value']",
+                "type": "label"
+              },
+              {
+                "value": "$data#$.Source.MsIdentifier.shelfmark['`@value']",
+                "type": "label"
+              },
+              {
+                "value": "$data#$.Source.ManuscriptDescription.Summary.summary['`@value']",
+                "type": "label"
+              },
+              {
+                "value": "$data#$.Source.ManuscriptDescription.Contents.textLang.textLang['`@value']",
+                "type": "label"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "displayType": "group",
+        "groupId": "physical",
+        "columns": [
+          {
+            "elements": [
+              {
+                "value": "$data#$.Source.PhysDesc.ObjectDesc.form['`@value']",
+                "type": "label",
+                "info": null
+              },
+              {
+                "value": "$data#$.Source.PhysDesc.ObjectDesc.additions['`@value']",
+                "type": "label"
+              },
+              {
+                "value": "$data#$.Source.PhysDesc.ObjectDesc.accMat['`@value']",
+                "type": "label"
+              },
+              {
+                "value": "$data#$.Source.PhysDesc.ObjectDesc.Collation.collation['`@value']",
+                "type": "label"
+              },
+              {
+                "value": "$data#$.Source.PhysDesc.Part",
+                "type": "array",
+                "config": {
+                  "itemTemplate": {
+                    "title": {
+                      "value": "$itemData#$.PartTitle.shelfmarkPlusPageRange['`@value']",
+                      "type": "label"
+                    },
+                    "material": {
+                      "value": "$itemData#$.SupportDesc.Material.material['`@value']",
+                      "type": "label"
+                    },
+                    "note": {
+                      "value": "$itemData#$.SupportDesc.Material.note['`@value']",
+                      "type": "label"
+                    },
+                    "condition": {
+                      "value": "$itemData#$.SupportDesc.condition['`@value']",
+                      "type": "label"
+                    },
+                    "foliation": {
+                      "value": "$itemData#$.SupportDesc.foliation['`@value']",
+                      "type": "label"
+                    },
+                    "extent": {
+                      "value": {
+                        "type": "$itemData#$.SupportDesc.Extent.MeasureLeavesCount.type['`@value']",
+                        "value": "$itemData#$.SupportDesc.Extent.MeasureLeavesCount.measure['`@value']"
+                      },
+                      "type": "extent",
+                      "label": "screens.manuscript-details.SupportDesc.Extent.MeasureLeavesCount.extent.`@value"
+                    },
+                    "pageSize": {
+                      "value": {
+                        "width": "$itemData#$.SupportDesc.Extent.MeasurePageDimensions.width['`@value']",
+                        "height": "$itemData#$.SupportDesc.Extent.MeasurePageDimensions.height['`@value']"
+                      },
+                      "type": "dimensions",
+                      "label": "screens.manuscript-details.SupportDesc.Extent.MeasurePageDimensions.pageSize"
+                    },
+                    "columns": {
+                      "value": "$itemData#$.LayoutDesc.Layout.Columns.columns['`@value']",
+                      "type": "label"
+                    },
+                    "writtenLines": {
+                      "value": "$itemData#$.LayoutDesc.Layout.WrittenLines.writtenLines['`@value']",
+                      "type": "label"
+                    },
+                    "textBlock": {
+                      "value": {
+                        "width": "$itemData#$.LayoutDesc.Layout.MeasureTextBlock.width['`@value']",
+                        "height": "$itemData#$.LayoutDesc.Layout.MeasureTextBlock.height['`@value']"
+                      },
+                      "type": "dimensions",
+                      "label": "screens.manuscript-details.LayoutDesc.Layout.MeasureTextBlock.size"
+                    },
+                    "script": {
+                      "value": "$itemData#$.HandDesc.HandNote.script['`@value']",
+                      "type": "label"
+                    },
+                    "handNote": {
+                      "value": "$itemData#$.HandDesc.HandNote.handNote['`@value']",
+                      "type": "label"
+                    },
+                    "musicNotation": {
+                      "value": "$itemData#$.MusicNotation.musicNotation['`@value']",
+                      "type": "label"
+                    },
+                    "musicNote": {
+                      "value": "$itemData#$.MusicNotation.note['`@value']",
+                      "type": "label"
+                    },
+                    "decoration": {
+                      "value": "$itemData#$.DecoDesc.decoNote['`@value']",
+                      "type": "label"
+                    }
+                  }
+                }
+              },
+              {
+                "value": "$data#$.Source.PhysDesc.BindingDesc.Binding.bindingDescription['`@value']",
+                "type": "label"
+              },
+              {
+                "value": "$data#$.Source.PhysDesc.BindingDesc.Binding.date['`@value']",
+                "type": "label"
+              },
+              {
+                "value": {
+                  "name": "$data#$.Source.PhysDesc.BindingDesc.Person.name['`@value']",
+                  "uri": "$data#$.Source.PhysDesc.BindingDesc.Person.uri['`@value']",
+                  "personType": "$data#$.Source.PhysDesc.BindingDesc.Person.personType['`@value']"
+                },
+                "type": "person",
+                "label": "screens.manuscript-details.physical.Source.PhysDesc.BindingDesc.Person"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "displayType": "group",
+        "groupId": "contents",
+        "columns": [
+          {
+            "elements": [
+              {
+                "type": "array",
+                "value": "$data#$.Source.ManuscriptDescription.Contents.Item",
+                "config": {
+                  "itemTemplate": {
+                    "locus": {
+                      "value": {
+                        "from": "$itemData#$.locusFrom['`@value']",
+                        "to": "$itemData#$.locusTo['`@value']"
+                      },
+                      "type": "pageRange",
+                      "label": "screens.manuscript-details.locus"
+                    },
+                    "title": {
+                      "value": "$itemData#$.Title.title['`@value']",
+                      "type": "label"
+                    },
+                    "altTitle": {
+                      "value": "$itemData#$.Title.altTitle['`@value']",
+                      "type": "label"
+                    },
+                    "author": {
+                      "type": "array",
+                      "value": "$itemData#$.Author",
+                      "config": {
+                        "itemTemplate": {
+                          "status": {
+                            "value": "$itemData#$.authorStatus['`@value']",
+                            "type": "label"
+                          },
+                          "author": {
+                            "value": "$itemData#$.author['`@value']",
+                            "type": "label"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
