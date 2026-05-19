@@ -73,78 +73,129 @@
                 "type": "array",
                 "config": {
                   "itemTemplate": {
-                    "title": {
-                      "value": "$itemData#$.PartTitle.shelfmarkPlusPageRange['`@value']",
-                      "type": "label"
-                    },
-                    "material": {
-                      "value": "$itemData#$.SupportDesc.Material.material['`@value']",
-                      "type": "label"
-                    },
-                    "note": {
-                      "value": "$itemData#$.SupportDesc.Material.note['`@value']",
-                      "type": "label"
-                    },
-                    "condition": {
-                      "value": "$itemData#$.SupportDesc.condition['`@value']",
-                      "type": "label"
-                    },
-                    "foliation": {
-                      "value": "$itemData#$.SupportDesc.foliation['`@value']",
-                      "type": "label"
-                    },
-                    "extent": {
-                      "value": {
-                        "type": "$itemData#$.SupportDesc.Extent.MeasureLeavesCount.type['`@value']",
-                        "value": "$itemData#$.SupportDesc.Extent.MeasureLeavesCount.measure['`@value']"
+                    "rows": [
+                      {
+                        "elements": [
+                          {
+                            "value": "$itemData#$.PartTitle.shelfmarkPlusPageRange['`@value']",
+                            "type": "label"
+                          }
+                        ]
                       },
-                      "type": "extent",
-                      "label": "screens.manuscript-details.SupportDesc.Extent.MeasureLeavesCount.extent.`@value"
-                    },
-                    "pageSize": {
-                      "value": {
-                        "width": "$itemData#$.SupportDesc.Extent.MeasurePageDimensions.width['`@value']",
-                        "height": "$itemData#$.SupportDesc.Extent.MeasurePageDimensions.height['`@value']"
+                      {
+                        "elements": [
+                          {
+                            "value": "$itemData#$.SupportDesc.Material.material['`@value']",
+                            "type": "label"
+                          },
+                          {
+                            "value": "$itemData#$.SupportDesc.Material.note['`@value']",
+                            "type": "label"
+                          },
+                          {
+                            "value": "$itemData#$.SupportDesc.condition['`@value']",
+                            "type": "label"
+                          },
+                          {
+                            "value": "$itemData#$.SupportDesc.foliation['`@value']",
+                            "type": "label"
+                          }
+                        ]
                       },
-                      "type": "dimensions",
-                      "label": "screens.manuscript-details.SupportDesc.Extent.MeasurePageDimensions.pageSize"
-                    },
-                    "columns": {
-                      "value": "$itemData#$.LayoutDesc.Layout.Columns.columns['`@value']",
-                      "type": "label"
-                    },
-                    "writtenLines": {
-                      "value": "$itemData#$.LayoutDesc.Layout.WrittenLines.writtenLines['`@value']",
-                      "type": "label"
-                    },
-                    "textBlock": {
-                      "value": {
-                        "width": "$itemData#$.LayoutDesc.Layout.MeasureTextBlock.width['`@value']",
-                        "height": "$itemData#$.LayoutDesc.Layout.MeasureTextBlock.height['`@value']"
+                      {
+                        "elements": [
+                          {
+                            "value": {
+                              "type": "$itemData#$.SupportDesc.Extent.MeasureLeavesCount.type['`@value']",
+                              "value": "$itemData#$.SupportDesc.Extent.MeasureLeavesCount.measure['`@value']"
+                            },
+                            "type": "extent",
+                            "label": "screens.manuscript-details.SupportDesc.Extent.MeasureLeavesCount.extent.`@value"
+                          },
+                          {
+                            "value": {
+                              "width": "$itemData#$.SupportDesc.Extent.MeasurePageDimensions.width['`@value']",
+                              "height": "$itemData#$.SupportDesc.Extent.MeasurePageDimensions.height['`@value']"
+                            },
+                            "type": "dimensions",
+                            "label": "screens.manuscript-details.SupportDesc.Extent.MeasurePageDimensions.pageSize"
+                          },
+                          {
+                            "value": "$itemData#$.LayoutDesc.Layout.Columns.columns['`@value']",
+                            "type": "label"
+                          },
+                          {
+                            "value": "$itemData#$.LayoutDesc.Layout.WrittenLines.writtenLines['`@value']",
+                            "type": "label"
+                          },
+                          {
+                            "value": {
+                              "width": "$itemData#$.LayoutDesc.Layout.MeasureTextBlock.width['`@value']",
+                              "height": "$itemData#$.LayoutDesc.Layout.MeasureTextBlock.height['`@value']"
+                            },
+                            "type": "dimensions",
+                            "label": "screens.manuscript-details.LayoutDesc.Layout.MeasureTextBlock.size"
+                          },
+                          {
+                            "value": "$itemData#$.HandDesc.HandNote.script['`@value']",
+                            "type": "label"
+                          },
+                          {
+                            "value": "$itemData#$.HandDesc.HandNote.handNote['`@value']",
+                            "type": "label"
+                          },
+                          {
+                            "value": "$itemData#$.HandDesc.HandNote.Locus.locus['`@value']",
+                            "type": "label"
+                          },
+                          {
+                            "value": {
+                              "name": "$itemData#$.HandDesc.Person.name['`@value']",
+                              "uri": "$itemData#$.HandDesc.Person.uri['`@value']",
+                              "personType": "$itemData#$.HandDesc.Person.personType['`@value']"
+                            },
+                            "type": "person",
+                            "label": "screens.manuscript-details.physical.Source.PhysDesc.Part.HandDesc.Person"
+                          }
+                        ]
                       },
-                      "type": "dimensions",
-                      "label": "screens.manuscript-details.LayoutDesc.Layout.MeasureTextBlock.size"
-                    },
-                    "script": {
-                      "value": "$itemData#$.HandDesc.HandNote.script['`@value']",
-                      "type": "label"
-                    },
-                    "handNote": {
-                      "value": "$itemData#$.HandDesc.HandNote.handNote['`@value']",
-                      "type": "label"
-                    },
-                    "musicNotation": {
-                      "value": "$itemData#$.MusicNotation.musicNotation['`@value']",
-                      "type": "label"
-                    },
-                    "musicNote": {
-                      "value": "$itemData#$.MusicNotation.note['`@value']",
-                      "type": "label"
-                    },
-                    "decoration": {
-                      "value": "$itemData#$.DecoDesc.decoNote['`@value']",
-                      "type": "label"
-                    }
+                      {
+                        "elements": [
+                          {
+                            "value": "$itemData#$.MusicNotation.musicNotation['`@value']",
+                            "type": "label"
+                          },
+                          {
+                            "value": "$itemData#$.MusicNotation.note['`@value']",
+                            "type": "label"
+                          },
+                          {
+                            "value": "$itemData#$.DecoDesc.decoNote['`@value']",
+                            "type": "label"
+                          }
+                        ]
+                      },
+                      {
+                        "elements": [
+                          {
+                            "type": "array",
+                            "value": "$itemData#$.DecoDesc.DecoElement",
+                            "config": {
+                              "itemTemplate": {
+                                "type": {
+                                  "value": "$itemData#$.decoType['`@value']",
+                                  "type": "label"
+                                },
+                                "locus": {
+                                  "value": "$itemData#$.Locus.locus['`@value']",
+                                  "type": "label"
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ]
                   }
                 }
               },
@@ -282,12 +333,207 @@
                             },
                             "type": "pageRange",
                             "label": "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Colophon.pageRange"
+                          },
+                          {
+                            "value": "$itemData#$.Colophon.colText['`@value']",
+                            "type": "label"
+                          },
+                          {
+                            "value": {
+                              "name": "$data#$.Colophon.Person.name['`@value']",
+                              "uri": "$data#$.Colophon.Person.uri['`@value']",
+                              "personType": "$data#$.Colophon.Person.personType['`@value']"
+                            },
+                            "type": "person",
+                            "label": "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Colophon.person"
+                          },
+                          {
+                            "value": "$data#$.Colophon.Note.note['`@value']",
+                            "type": "label"
                           }
                         ]
                       }
                     ]
                   }
                 }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "displayType": "group",
+        "groupId": "history",
+        "columns": [
+          {
+            "elements": [
+              {
+                "type": "array",
+                "value": "$data#$.Source.History.Origin.Part",
+                "config": {
+                  "itemTemplate": {
+                    "rows": [
+                      {
+                        "elements": [
+                          {
+                            "value": "$itemData#$.origPlace['`@value']",
+                            "type": "label"
+                          },
+                          {
+                            "value": "$itemData#$.origDate['`@value']",
+                            "type": "label"
+                          },
+                          {
+                            "value": "$itemData#$.note['`@value']",
+                            "type": "label"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "array",
+                "value": "$data#$.Source.History.Provenance",
+                "config": {
+                  "itemTemplate": {
+                    "rows": [
+                      {
+                        "elements": [
+                          {
+                            "value": "$itemData#$.provenance['`@value']",
+                            "type": "label"
+                          },
+                          {
+                            "value": {
+                              "name": "$itemData#$.PersName.persName['`@value']",
+                              "uri": "$itemData#$.PersName.personUri['`@value']",
+                              "personType": "$itemData#$.PersName.personType['`@value']"
+                            },
+                            "type": "person",
+                            "label": "screens.manuscript-details.history.Source.History.Provenance.person"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "array",
+                "value": "$data#$.Source.History.Acquisition",
+                "config": {
+                  "itemTemplate": {
+                    "rows": [
+                      {
+                        "elements": [
+                          {
+                            "value": "$itemData#$.acquisition['`@value']",
+                            "type": "label"
+                          },
+                          {
+                            "value": {
+                              "name": "$itemData#$.PersName.persName['`@value']",
+                              "uri": "$itemData#$.PersName.personUri['`@value']",
+                              "personType": "$itemData#$.PersName.personType['`@value']"
+                            },
+                            "type": "person",
+                            "label": "screens.manuscript-details.history.Source.History.Acquisition.person"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "displayType": "group",
+        "groupId": "bibliography",
+        "columns": [
+          {
+            "elements": [
+              {
+                "type": "array",
+                "value": "$data#$.Source.Additional.Bibliography.onlineResource",
+                "config": {
+                  "itemTemplate": {
+                    "resource": {
+                      "value": "$itemData#$['`@value']",
+                      "type": "external-link"
+                    }
+                  }
+                }
+              },
+              {
+                "value": "$data#$.Source.Additional.Bibliography.note['`@value']",
+                "type": "label"
+              },
+              {
+                "type": "array",
+                "value": "$data#$.Source.Additional.Bibliography.Bibliography",
+                "config": {
+                  "itemTemplate": {
+                    "shortTitle": {
+                      "value": "$itemData#$.shortTitle['`@value']",
+                      "type": "label"
+                    },
+                    "link": {
+                      "value": "$itemData#$.zoteroGroupItemLink['`@value']",
+                      "type": "external-link"
+                    },
+                    "pageRange": {
+                      "value": "$itemData#$.pageRange['`@value']",
+                      "type": "label"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "displayType": "group",
+        "groupId": "record-information",
+        "columns": [
+          {
+            "elements": [
+              {
+                "value": "$data#$.Title.creator",
+                "type": "array",
+                "config": {
+                  "itemTemplate": {
+                    "name": {
+                      "value": "$itemData#$['`@value']",
+                      "type": "label"
+                    }
+                  }
+                }
+              },
+              {
+                "value": "$data#$.Publication.publisher['`@value']",
+                "type": "label"
+              },
+              {
+                "value": "$data#$.Source.Additional.Availability.state['`@value']",
+                "type": "label"
+              },
+              {
+                "value": "$data#$.Source.Additional.Availability.licence['`@value']",
+                "type": "label"
+              },
+              {
+                "value": "$data#$.Source.Additional.Availability.licenceUri['`@value']",
+                "type": "external-link"
+              },
+              {
+                "value": "$data#$.Publication.manifestUri['`@value']",
+                "type": "external-link"
               }
             ]
           }
