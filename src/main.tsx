@@ -14,6 +14,7 @@ import DimensionsBlockRenderer from "./components/blocks/dimensions";
 import ExtentBlockRenderer from "./components/blocks/extent";
 import PersonBlockRenderer from "./components/blocks/person";
 import PageRangeBlockRenderer from "./components/blocks/pageRange";
+import TagsBlockRenderer from "../../../panoptes/panoptes-react-blocks/lib/components/blocks/tags";
 
 
 const panoptesUrl = '$VITE_PANOPTES_URL';
@@ -55,6 +56,7 @@ const root = createPanoptesRoot(document.getElementById('root')!, {
         ["extent", ExtentBlockRenderer],
         ["person", PersonBlockRenderer],
         ["pageRange", PageRangeBlockRenderer],
+        ["tags", TagsBlockRenderer],
     ])
 });
 root.render(<PanoptesRouterProvider/>);

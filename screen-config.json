@@ -180,38 +180,112 @@
                 "value": "$data#$.Source.ManuscriptDescription.Contents.Item",
                 "config": {
                   "itemTemplate": {
-                    "locus": {
-                      "value": {
-                        "from": "$itemData#$.locusFrom['`@value']",
-                        "to": "$itemData#$.locusTo['`@value']"
-                      },
-                      "type": "pageRange",
-                      "label": "screens.manuscript-details.locus"
-                    },
-                    "title": {
-                      "value": "$itemData#$.Title.title['`@value']",
-                      "type": "label"
-                    },
-                    "altTitle": {
-                      "value": "$itemData#$.Title.altTitle['`@value']",
-                      "type": "label"
-                    },
-                    "author": {
-                      "type": "array",
-                      "value": "$itemData#$.Author",
-                      "config": {
-                        "itemTemplate": {
-                          "status": {
-                            "value": "$itemData#$.authorStatus['`@value']",
+                    "rows": [
+                      {
+                        "elements": [
+                          {
+                            "value": {
+                              "from": "$itemData#$.locusFrom['`@value']",
+                              "to": "$itemData#$.locusTo['`@value']"
+                            },
+                            "type": "pageRange",
+                            "label": "screens.manuscript-details.locus"
+                          },
+                          {
+                            "value": "$itemData#$.Title.title['`@value']",
                             "type": "label"
                           },
-                          "author": {
-                            "value": "$itemData#$.author['`@value']",
+                          {
+                            "value": "$itemData#$.Title.altTitle['`@value']",
                             "type": "label"
                           }
-                        }
+                        ]
+                      },
+                      {
+                        "displayType": "group",
+                        "groupId": "author",
+                        "elements": [
+                          {
+                            "type": "array",
+                            "value": "$itemData#$.Author",
+                            "config": {
+                              "itemTemplate": {
+                                "status": {
+                                  "value": "$itemData#$.authorStatus['`@value']",
+                                  "type": "label"
+                                },
+                                "author": {
+                                  "value": "$itemData#$.author['`@value']",
+                                  "type": "label"
+                                },
+                                "authorQualification": {
+                                  "value": "$itemData#$.authorQualification['`@value']",
+                                  "type": "label"
+                                },
+                                "scribalContext": {
+                                  "value": "$itemData#$.scribalContext['`@value']",
+                                  "type": "label"
+                                },
+                                "note": {
+                                  "value": "$itemData#$.note['`@value']",
+                                  "type": "label"
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "elements": [
+                          {
+                            "type": "array",
+                            "value": "$itemData#$.Translator",
+                            "config": {
+                              "itemTemplate": {
+                                "status": {
+                                  "value": "$itemData#$.translatorStatus['`@value']",
+                                  "type": "label"
+                                },
+                                "translator": {
+                                  "value": "$itemData#$.translator['`@value']",
+                                  "type": "label"
+                                },
+                                "qualification": {
+                                  "value": "$itemData#$.authorQualification['`@value']",
+                                  "type": "label"
+                                },
+                                "scribalContext": {
+                                  "value": "$itemData#$.scribalContext['`@value']",
+                                  "type": "label"
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "elements": [
+                          {
+                            "value": "$itemData#$.Class[*].class['`@value']",
+                            "type": "tags"
+                          }
+                        ]
+                      },
+                      {
+                        "displayType": "group",
+                        "groupId": "colophon",
+                        "elements": [
+                          {
+                            "value": {
+                              "from": "$itemData#$.Colophon.locusFrom['`@value']",
+                              "to": "$itemData#$.Colophon.locusTo['`@value']"
+                            },
+                            "type": "pageRange",
+                            "label": "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Colophon.pageRange"
+                          }
+                        ]
                       }
-                    }
+                    ]
                   }
                 }
               }

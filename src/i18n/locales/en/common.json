@@ -102,5 +102,15 @@
   "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Author.authorStatus.`@value": "Status",
   "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Author.authorStatus.`@value.info": "",
   "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Author.author.`@value": "Author",
-  "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Author.author.`@value.info": ""
+  "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Author.author.`@value.info": "",
+  "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Author.authorQualification.`@value": "Qualification",
+  "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Author.authorQualification.`@value.info": "",
+  "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Author.scribalContext.`@value": "Scribal context",
+  "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Author.scribalContext.`@value.info": "",
+  "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Author.note.`@value": "Note",
+  "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Author.note.`@value.info": "",
+  "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Translator": "Translator",
+  "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Translator.info": "",
+  "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Class.*.class.`@value": "Class",
+  "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Class.*.class.`@value.info": ""
 }
