@@ -8,13 +8,12 @@ import {
     ExternalLinkBlockRenderer,
     JsonBlockRenderer, LabelBlockRenderer,
     LinkBlockRenderer, MapBlockRenderer,
-    MarkdownBlockRenderer, ScreenBlockRenderer, ToggleBlockRenderer
+    MarkdownBlockRenderer, ScreenBlockRenderer, TagsBlockRenderer, ToggleBlockRenderer
 } from "@knaw-huc/panoptes-react-blocks";
 import DimensionsBlockRenderer from "./components/blocks/dimensions";
 import ExtentBlockRenderer from "./components/blocks/extent";
 import PersonBlockRenderer from "./components/blocks/person";
 import PageRangeBlockRenderer from "./components/blocks/pageRange";
-import TagsBlockRenderer from "../../../panoptes/panoptes-react-blocks/lib/components/blocks/tags";
 
 
 const panoptesUrl = '$VITE_PANOPTES_URL';
@@ -36,6 +35,23 @@ if (window.location.pathname === '/') {
     window.location.replace(target);
 }
 
+// @ts-expect-error TODO: Fix TS error
+const blocks = new Map<string, FC<{block: Block}>>([
+    ["json", JsonBlockRenderer],
+    ["link", LinkBlockRenderer],
+    ["external-link", ExternalLinkBlockRenderer],
+    ["markdown", MarkdownBlockRenderer],
+    ["toggle", ToggleBlockRenderer],
+    ["screen", ScreenBlockRenderer],
+    ["label", LabelBlockRenderer],
+    ["map", MapBlockRenderer],
+    ["dimensions", DimensionsBlockRenderer],
+    ["extent", ExtentBlockRenderer],
+    ["person", PersonBlockRenderer],
+    ["pageRange", PageRangeBlockRenderer],
+    ["tags", TagsBlockRenderer],
+]);
+
 const root = createPanoptesRoot(document.getElementById('root')!, {
     url: getVar(panoptesUrl),
     isEmbedded: getVar(panoptesIsEmbedded) === 'true',
@@ -43,20 +59,6 @@ const root = createPanoptesRoot(document.getElementById('root')!, {
     detailPath: getVar(panoptesDetailPath),
     dataset: getVar(panoptesDataset),
     translateFn: createTranslate(),
-    blocks: new Map([
-        ["json", JsonBlockRenderer],
-        ["link", LinkBlockRenderer],
-        ["external-link", ExternalLinkBlockRenderer],
-        ["markdown", MarkdownBlockRenderer],
-        ["toggle", ToggleBlockRenderer],
-        ["screen", ScreenBlockRenderer],
-        ["label", LabelBlockRenderer],
-        ["map", MapBlockRenderer],
-        ["dimensions", DimensionsBlockRenderer],
-        ["extent", ExtentBlockRenderer],
-        ["person", PersonBlockRenderer],
-        ["pageRange", PageRangeBlockRenderer],
-        ["tags", TagsBlockRenderer],
-    ])
+    blocks: blocks
 });
 root.render(<PanoptesRouterProvider/>);
