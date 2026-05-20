@@ -180,5 +180,11 @@
   "screens.manuscript-details.record-information.Source.Additional.Availability.licenceUri.`@value": "Licence URI",
   "screens.manuscript-details.record-information.Source.Additional.Availability.licenceUri.`@value.info": "",
   "screens.manuscript-details.record-information.Publication.manifestUri.`@value": "IIIF Manifest",
-  "screens.manuscript-details.record-information.Publication.manifestUri.`@value.info": ""
+  "screens.manuscript-details.record-information.Publication.manifestUri.`@value.info": "",
+  "screens.manuscript-details.bibliography.Source.Additional.Bibliography.Bibliography.shortTitle.`@value": "Short title",
+  "screens.manuscript-details.bibliography.Source.Additional.Bibliography.Bibliography.shortTitle.`@value.info": "",
+  "screens.manuscript-details.bibliography.Source.Additional.Bibliography.Bibliography.zoteroGroupItemLink.`@value": "URL",
+  "screens.manuscript-details.bibliography.Source.Additional.Bibliography.Bibliography.zoteroGroupItemLink.`@value.info": "",
+  "screens.manuscript-details.bibliography.Source.Additional.Bibliography.Bibliography.pageRange.`@value": "Page range",
+  "screens.manuscript-details.bibliography.Source.Additional.Bibliography.Bibliography.pageRange.`@value.info": ""
 }
