@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@knaw-huc/panoptes-react": "^0.0.3",
-    "@knaw-huc/panoptes-react-blocks": "../../panoptes/panoptes-react-blocks",
+    "@knaw-huc/panoptes-react-blocks": "^0.0.9",
     "i18next": "^25.10.5",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
