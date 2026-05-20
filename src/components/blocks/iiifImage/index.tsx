@@ -14,7 +14,7 @@ export interface IIIFImageBlockValue {
 }
 
 export interface IIIFImageBlock extends Block {
-    type: 'pageRange';
+    type: 'iiifImage';
     value: IIIFImageBlockValue;
 }
 
