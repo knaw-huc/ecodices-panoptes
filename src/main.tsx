@@ -10,11 +10,12 @@ import {
     LinkBlockRenderer, MapBlockRenderer,
     MarkdownBlockRenderer, ScreenBlockRenderer, TagsBlockRenderer, ToggleBlockRenderer
 } from "@knaw-huc/panoptes-react-blocks";
+import IIIFResultCard, {type IIIFResultCardProps} from "./components/IIIFResultCard";
 import DimensionsBlockRenderer from "./components/blocks/dimensions";
 import ExtentBlockRenderer from "./components/blocks/extent";
 import PersonBlockRenderer from "./components/blocks/person";
 import PageRangeBlockRenderer from "./components/blocks/pageRange";
-
+import IIIFImageBlockRenderer from "./components/blocks/iiifImage";
 
 const panoptesUrl = '$VITE_PANOPTES_URL';
 const panoptesIsEmbedded = '$VITE_PANOPTES_IS_EMBEDDED';
@@ -50,15 +51,17 @@ const blocks = new Map<string, FC<{block: Block}>>([
     ["person", PersonBlockRenderer],
     ["pageRange", PageRangeBlockRenderer],
     ["tags", TagsBlockRenderer],
+    ["iiifImage", IIIFImageBlockRenderer],
 ]);
 
-const root = createPanoptesRoot(document.getElementById('root')!, {
+const root = createPanoptesRoot<IIIFResultCardProps>(document.getElementById('root')!, {
     url: getVar(panoptesUrl),
     isEmbedded: getVar(panoptesIsEmbedded) === 'true',
     searchPath: getVar(panoptesSearchPath),
     detailPath: getVar(panoptesDetailPath),
     dataset: getVar(panoptesDataset),
     translateFn: createTranslate(),
+    resultCardRenderer: (result, link) => <IIIFResultCard {...result} link={link}/>,
     blocks: blocks
 });
 root.render(<PanoptesRouterProvider/>);
