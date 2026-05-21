@@ -22,6 +22,12 @@
                 "type": "label"
               },
               {
+                "value": {
+                  "manifestUri": "$data#$.Publication.manifestUri['`@value']"
+                },
+                "type": "iiifImage"
+              },
+              {
                 "value": "$data#$.Source.MsIdentifier.settlement['`@value']",
                 "type": "label"
               },

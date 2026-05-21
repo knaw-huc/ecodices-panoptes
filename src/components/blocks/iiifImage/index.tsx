@@ -77,6 +77,10 @@ export default function IIIFImageBlockRenderer({block: {value}}: { block: IIIFIm
 }
 
 function ManifestThumbnail({manifestUri, width, height}: IIIFImageBlockValue) {
+    if (!width) {
+        width = 400;
+    }
+
     const imageHref = use(getImageHrefPromise(manifestUri, width, height));
     if (!imageHref) {
         return <></>;
