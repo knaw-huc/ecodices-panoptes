@@ -8,13 +8,13 @@ import {
     ExternalLinkBlockRenderer,
     JsonBlockRenderer, LabelBlockRenderer,
     LinkBlockRenderer, MapBlockRenderer,
-    MarkdownBlockRenderer, ScreenBlockRenderer, ToggleBlockRenderer
+    MarkdownBlockRenderer, ScreenBlockRenderer, ToggleBlockRenderer, TagsBlockRenderer
 } from "@knaw-huc/panoptes-react-blocks";
+import IIIFResultCard, {type IIIFResultCardProps} from "./components/IIIFResultCard";
 import DimensionsBlockRenderer from "./components/blocks/dimensions";
 import ExtentBlockRenderer from "./components/blocks/extent";
 import PersonBlockRenderer from "./components/blocks/person";
 import PageRangeBlockRenderer from "./components/blocks/pageRange";
-import TagsBlockRenderer from "../../../panoptes/panoptes-react-blocks/lib/components/blocks/tags";
 import IIIFImageBlockRenderer from "./components/blocks/iiifImage";
 
 const panoptesUrl = '$VITE_PANOPTES_URL';
@@ -36,13 +36,14 @@ if (window.location.pathname === '/') {
     window.location.replace(target);
 }
 
-const root = createPanoptesRoot(document.getElementById('root')!, {
+const root = createPanoptesRoot<IIIFResultCardProps>(document.getElementById('root')!, {
     url: getVar(panoptesUrl),
     isEmbedded: getVar(panoptesIsEmbedded) === 'true',
     searchPath: getVar(panoptesSearchPath),
     detailPath: getVar(panoptesDetailPath),
     dataset: getVar(panoptesDataset),
     translateFn: createTranslate(),
+    resultCardRenderer: (result, link) => <IIIFResultCard {...result} link={link}/>,
     blocks: new Map([
         ["json", JsonBlockRenderer],
         ["link", LinkBlockRenderer],
