@@ -8,7 +8,7 @@ import {
     ExternalLinkBlockRenderer,
     JsonBlockRenderer, LabelBlockRenderer,
     LinkBlockRenderer, MapBlockRenderer,
-    MarkdownBlockRenderer, ScreenBlockRenderer, ToggleBlockRenderer, TagsBlockRenderer
+    MarkdownBlockRenderer, ScreenBlockRenderer, TagsBlockRenderer, ToggleBlockRenderer
 } from "@knaw-huc/panoptes-react-blocks";
 import IIIFResultCard, {type IIIFResultCardProps} from "./components/IIIFResultCard";
 import DimensionsBlockRenderer from "./components/blocks/dimensions";
@@ -36,6 +36,24 @@ if (window.location.pathname === '/') {
     window.location.replace(target);
 }
 
+// @ts-expect-error TODO: Fix TS error
+const blocks = new Map<string, FC<{block: Block}>>([
+    ["json", JsonBlockRenderer],
+    ["link", LinkBlockRenderer],
+    ["external-link", ExternalLinkBlockRenderer],
+    ["markdown", MarkdownBlockRenderer],
+    ["toggle", ToggleBlockRenderer],
+    ["screen", ScreenBlockRenderer],
+    ["label", LabelBlockRenderer],
+    ["map", MapBlockRenderer],
+    ["dimensions", DimensionsBlockRenderer],
+    ["extent", ExtentBlockRenderer],
+    ["person", PersonBlockRenderer],
+    ["pageRange", PageRangeBlockRenderer],
+    ["tags", TagsBlockRenderer],
+    ["iiifImage", IIIFImageBlockRenderer],
+]);
+
 const root = createPanoptesRoot<IIIFResultCardProps>(document.getElementById('root')!, {
     url: getVar(panoptesUrl),
     isEmbedded: getVar(panoptesIsEmbedded) === 'true',
@@ -44,21 +62,6 @@ const root = createPanoptesRoot<IIIFResultCardProps>(document.getElementById('ro
     dataset: getVar(panoptesDataset),
     translateFn: createTranslate(),
     resultCardRenderer: (result, link) => <IIIFResultCard {...result} link={link}/>,
-    blocks: new Map([
-        ["json", JsonBlockRenderer],
-        ["link", LinkBlockRenderer],
-        ["external-link", ExternalLinkBlockRenderer],
-        ["markdown", MarkdownBlockRenderer],
-        ["toggle", ToggleBlockRenderer],
-        ["screen", ScreenBlockRenderer],
-        ["label", LabelBlockRenderer],
-        ["map", MapBlockRenderer],
-        ["dimensions", DimensionsBlockRenderer],
-        ["extent", ExtentBlockRenderer],
-        ["person", PersonBlockRenderer],
-        ["pageRange", PageRangeBlockRenderer],
-        ["tags", TagsBlockRenderer],
-        ["iiifImage", IIIFImageBlockRenderer],
-    ])
+    blocks: blocks
 });
 root.render(<PanoptesRouterProvider/>);
