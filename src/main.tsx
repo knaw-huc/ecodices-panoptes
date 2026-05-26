@@ -60,6 +60,17 @@ const root = createPanoptesRoot<IIIFResultCardProps>(document.getElementById('ro
     searchPath: getVar(panoptesSearchPath),
     detailPath: getVar(panoptesDetailPath),
     dataset: getVar(panoptesDataset),
+    branding: "eCodicesNL",
+    navItems: [
+        {
+            "label": "Search",
+            "href": "/search"
+        },
+        {
+            "label": "Persons",
+            "href": "/persons"
+        }
+    ],
     translateFn: createTranslate(),
     resultCardRenderer: (result, link) => <IIIFResultCard {...result} link={link}/>,
     blocks: blocks
