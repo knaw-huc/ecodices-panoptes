@@ -63,12 +63,14 @@ const root = createPanoptesRoot<IIIFResultCardProps>(document.getElementById('ro
     branding: "eCodicesNL",
     navItems: [
         {
-            "label": "Search",
-            "href": "/search"
+            "label": "search",
+            "href": "/search",
+            "labelKey": "pages.search"
         },
         {
-            "label": "Persons",
-            "href": "/persons"
+            "label": "persons",
+            "href": "/persons",
+            "labelKey": "pages.persons"
         }
     ],
     translateFn: createTranslate(),

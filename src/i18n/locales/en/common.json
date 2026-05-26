@@ -27,6 +27,8 @@
   "panoptes.noValue": "No value",
   "panoptes.mainSiteNavigation": "Main site navigation",
   "screens.manuscript-details": "Details",
+  "pages.search": "Search",
+  "pages.persons": "Persons",
   "screens.manuscript-details.object": "Object description",
   "screens.manuscript-details.object.Title.title.`@value": "Title",
   "screens.manuscript-details.object.Title.title.`@value.info": "",
