@@ -133,7 +133,7 @@
   "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Translator.scribalContext.`@value.info": "",
   "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Class.*.class.`@value": "Class",
   "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Class.*.class.`@value.info": "",
-  "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Colophon.pageRange": "Colophon page range",
+  "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Colophon.pageRange": "Locus",
   "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Colophon.pageRange.info": "",
   "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Colophon.colText.`@value": "Colophon",
   "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Colophon.colText.`@value.info": "",

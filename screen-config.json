@@ -333,16 +333,16 @@
                         "groupId": "colophon",
                         "elements": [
                           {
+                            "value": "$itemData#$.Colophon.colText['`@value']",
+                            "type": "label"
+                          },
+                          {
                             "value": {
                               "from": "$itemData#$.Colophon.locusFrom['`@value']",
                               "to": "$itemData#$.Colophon.locusTo['`@value']"
                             },
                             "type": "pageRange",
                             "label": "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Colophon.pageRange"
-                          },
-                          {
-                            "value": "$itemData#$.Colophon.colText['`@value']",
-                            "type": "label"
                           },
                           {
                             "value": {
