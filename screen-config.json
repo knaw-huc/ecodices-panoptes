@@ -267,12 +267,12 @@
                             "value": "$itemData#$.Author",
                             "config": {
                               "itemTemplate": {
-                                "status": {
-                                  "value": "$itemData#$.authorStatus['`@value']",
-                                  "type": "label"
-                                },
                                 "author": {
                                   "value": "$itemData#$.author['`@value']",
+                                  "type": "label"
+                                },
+                                "status": {
+                                  "value": "$itemData#$.authorStatus['`@value']",
                                   "type": "label"
                                 },
                                 "authorQualification": {
