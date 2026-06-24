@@ -267,12 +267,12 @@
                             "value": "$itemData#$.Author",
                             "config": {
                               "itemTemplate": {
-                                "status": {
-                                  "value": "$itemData#$.authorStatus['`@value']",
-                                  "type": "label"
-                                },
                                 "author": {
                                   "value": "$itemData#$.author['`@value']",
+                                  "type": "label"
+                                },
+                                "status": {
+                                  "value": "$itemData#$.authorStatus['`@value']",
                                   "type": "label"
                                 },
                                 "authorQualification": {
@@ -333,16 +333,16 @@
                         "groupId": "colophon",
                         "elements": [
                           {
+                            "value": "$itemData#$.Colophon.colText['`@value']",
+                            "type": "label"
+                          },
+                          {
                             "value": {
                               "from": "$itemData#$.Colophon.locusFrom['`@value']",
                               "to": "$itemData#$.Colophon.locusTo['`@value']"
                             },
                             "type": "pageRange",
                             "label": "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Colophon.pageRange"
-                          },
-                          {
-                            "value": "$itemData#$.Colophon.colText['`@value']",
-                            "type": "label"
                           },
                           {
                             "value": {
