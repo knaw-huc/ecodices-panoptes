@@ -206,18 +206,36 @@
                 }
               },
               {
-                "value": "$data#$.Source.PhysDesc.BindingDesc.Binding.bindingDescription['`@value']",
-                "type": "label"
-              },
-              {
-                "value": "$data#$.Source.PhysDesc.BindingDesc.Binding.date['`@value']",
-                "type": "label"
+                "value": "$data#$.Source.PhysDesc.BindingDesc.Binding",
+                "type": "array",
+                "config": {
+                  "itemTemplate": {
+                    "rows": [
+                      {
+                        "elements": [
+                          {
+                            "value": "$itemData#$.bindingDescription['`@value']",
+                            "type": "label"
+                          }
+                        ]
+                      },
+                      {
+                        "elements": [
+                          {
+                            "value": "$itemData#$.date['`@value']",
+                            "type": "label"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
               },
               {
                 "value": {
-                  "name": "$data#$.Source.PhysDesc.BindingDesc.Person.name['`@value']",
-                  "uri": "$data#$.Source.PhysDesc.BindingDesc.Person.uri['`@value']",
-                  "personType": "$data#$.Source.PhysDesc.BindingDesc.Person.personType['`@value']"
+                  "name": "$itemData#$.Source.PhysDesc.BindingDesc.Person.name['`@value']",
+                  "uri": "$itemData#$.Source.PhysDesc.BindingDesc.Person.uri['`@value']",
+                  "personType": "$itemData#$.Source.PhysDesc.BindingDesc.Person.personType['`@value']"
                 },
                 "type": "person",
                 "label": "screens.manuscript-details.physical.Source.PhysDesc.BindingDesc.Person"
