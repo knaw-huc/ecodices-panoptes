@@ -16,6 +16,7 @@ import ExtentBlockRenderer from "./components/blocks/extent";
 import PersonBlockRenderer from "./components/blocks/person";
 import PageRangeBlockRenderer from "./components/blocks/pageRange";
 import IIIFImageBlockRenderer from "./components/blocks/iiifImage";
+import IIIFLinkBlockRenderer from "./components/blocks/iiifLink";
 
 const panoptesUrl = '$VITE_PANOPTES_URL';
 const panoptesIsEmbedded = '$VITE_PANOPTES_IS_EMBEDDED';
@@ -52,6 +53,7 @@ const blocks = new Map<string, FC<{block: Block}>>([
     ["pageRange", PageRangeBlockRenderer],
     ["tags", TagsBlockRenderer],
     ["iiifImage", IIIFImageBlockRenderer],
+    ["iiifLink", IIIFLinkBlockRenderer],
 ]);
 
 const root = createPanoptesRoot<IIIFResultCardProps>(document.getElementById('root')!, {

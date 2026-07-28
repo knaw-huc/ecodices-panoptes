@@ -558,6 +558,10 @@
               {
                 "value": "$data#$.Publication.manifestUri['`@value']",
                 "type": "external-link"
+              },
+              {
+                "value": "$data#$.Publication.manifestUri['`@value']",
+                "type": "iiifLink"
               }
             ]
           }
