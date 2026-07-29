@@ -141,19 +141,37 @@
                             },
                             "type": "dimensions",
                             "label": "screens.manuscript-details.LayoutDesc.Layout.MeasureTextBlock.size"
-                          },
-                          {
-                            "value": "$itemData#$.HandDesc.HandNote.script['`@value']",
-                            "type": "label"
-                          },
-                          {
-                            "value": "$itemData#$.HandDesc.HandNote.handNote['`@value']",
-                            "type": "label"
-                          },
-                          {
-                            "value": "$itemData#$.HandDesc.HandNote.Locus.locus['`@value']",
-                            "type": "label"
-                          },
+                          }
+                        ]
+                      },
+                      {
+                        "value": "$itemData#$.HandDesc.HandNote",
+                        "type": "array",
+                        "config": {
+                          "itemTemplate": {
+                            "rows": [
+                              {
+                                "elements": [
+                                  {
+                                    "value": "$itemData#$.script['`@value']",
+                                    "type": "label"
+                                  },
+                                  {
+                                    "value": "$itemData#$.handNote['`@value']",
+                                    "type": "label"
+                                  },
+                                  {
+                                    "value": "$itemData#$.Locus.locus['`@value']",
+                                    "type": "label"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "elements": [
                           {
                             "value": {
                               "name": "$itemData#$.HandDesc.Person.name['`@value']",

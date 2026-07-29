@@ -51,7 +51,7 @@
   "screens.manuscript-details.physical.Source.PhysDesc.ObjectDesc.accMat.`@value.info": "",
   "screens.manuscript-details.physical.Source.PhysDesc.Part": "Codicological units",
   "screens.manuscript-details.physical.Source.PhysDesc.Part.info": "",
-  "screens.manuscript-details.physical.Source.PhysDesc.Part.PartTitle.shelfmarkPlusPageRange.`@value": "Manuscript Unit",
+  "screens.manuscript-details.physical.Source.PhysDesc.Part.PartTitle.shelfmarkPlusPageRange.`@value": "Codicological Unit",
   "screens.manuscript-details.physical.Source.PhysDesc.Part.PartTitle.shelfmarkPlusPageRange.`@value.info": "",
   "screens.manuscript-details.physical.Source.PhysDesc.Part.SupportDesc.Material.material.`@value": "Material",
   "screens.manuscript-details.physical.Source.PhysDesc.Part.SupportDesc.Material.material.`@value.info": "",
