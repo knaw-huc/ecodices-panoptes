@@ -141,19 +141,41 @@
                             },
                             "type": "dimensions",
                             "label": "screens.manuscript-details.LayoutDesc.Layout.MeasureTextBlock.size"
-                          },
+                          }
+                        ]
+                      },
+                      {
+                        "elements": [
                           {
-                            "value": "$itemData#$.HandDesc.HandNote.script['`@value']",
-                            "type": "label"
-                          },
-                          {
-                            "value": "$itemData#$.HandDesc.HandNote.handNote['`@value']",
-                            "type": "label"
-                          },
-                          {
-                            "value": "$itemData#$.HandDesc.HandNote.Locus.locus['`@value']",
-                            "type": "label"
-                          },
+                            "value": "$itemData#$.HandDesc.HandNote",
+                            "type": "array",
+                            "config": {
+                              "itemTemplate": {
+                                "rows": [
+                                  {
+                                    "elements": [
+                                      {
+                                        "value": "$itemData#$.script['`@value']",
+                                        "type": "label"
+                                      },
+                                      {
+                                        "value": "$itemData#$.handNote['`@value']",
+                                        "type": "label"
+                                      },
+                                      {
+                                        "value": "$itemData#$.Locus.locus['`@value']",
+                                        "type": "label"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "elements": [
                           {
                             "value": {
                               "name": "$itemData#$.HandDesc.Person.name['`@value']",
@@ -558,6 +580,10 @@
               {
                 "value": "$data#$.Publication.manifestUri['`@value']",
                 "type": "external-link"
+              },
+              {
+                "value": "$data#$.Publication.manifestUri['`@value']",
+                "type": "iiifLink"
               }
             ]
           }
