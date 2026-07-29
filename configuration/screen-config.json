@@ -145,30 +145,34 @@
                         ]
                       },
                       {
-                        "value": "$itemData#$.HandDesc.HandNote",
-                        "type": "array",
-                        "config": {
-                          "itemTemplate": {
-                            "rows": [
-                              {
-                                "elements": [
+                        "elements": [
+                          {
+                            "value": "$itemData#$.HandDesc.HandNote",
+                            "type": "array",
+                            "config": {
+                              "itemTemplate": {
+                                "rows": [
                                   {
-                                    "value": "$itemData#$.script['`@value']",
-                                    "type": "label"
-                                  },
-                                  {
-                                    "value": "$itemData#$.handNote['`@value']",
-                                    "type": "label"
-                                  },
-                                  {
-                                    "value": "$itemData#$.Locus.locus['`@value']",
-                                    "type": "label"
+                                    "elements": [
+                                      {
+                                        "value": "$itemData#$.script['`@value']",
+                                        "type": "label"
+                                      },
+                                      {
+                                        "value": "$itemData#$.handNote['`@value']",
+                                        "type": "label"
+                                      },
+                                      {
+                                        "value": "$itemData#$.Locus.locus['`@value']",
+                                        "type": "label"
+                                      }
+                                    ]
                                   }
                                 ]
                               }
-                            ]
+                            }
                           }
-                        }
+                        ]
                       },
                       {
                         "elements": [
