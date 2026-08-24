@@ -42,6 +42,8 @@
   "screens.manuscript-details.object.Source.ManuscriptDescription.Summary.summary.`@value.info": "",
   "screens.manuscript-details.object.Source.ManuscriptDescription.Contents.textLang.textLang.`@value": "Language",
   "screens.manuscript-details.object.Source.ManuscriptDescription.Contents.textLang.textLang.`@value.info": "",
+  "screens.manuscript-details.object.Source.ManuscriptDescription.Contents.textLang.otherLang.*.`@value": "Additional languages",
+  "screens.manuscript-details.object.Source.ManuscriptDescription.Contents.textLang.otherLang.*.`@value.info": "",
   "screens.manuscript-details.physical": "Physical description",
   "screens.manuscript-details.physical.Source.PhysDesc.ObjectDesc.form.`@value": "Object type",
   "screens.manuscript-details.physical.Source.PhysDesc.ObjectDesc.form.`@value.info": "",
