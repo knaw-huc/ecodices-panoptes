@@ -46,6 +46,10 @@
               {
                 "value": "$data#$.Source.ManuscriptDescription.Contents.textLang.textLang['`@value']",
                 "type": "label"
+              },
+              {
+                "value": "$data#$.Source.ManuscriptDescription.Contents.textLang.otherLang[*]['`@value']",
+                "type": "tags"
               }
             ]
           }
