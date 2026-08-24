@@ -196,7 +196,11 @@
                           {
                             "value": "$itemData#$.MusicNotation.note['`@value']",
                             "type": "label"
-                          },
+                          }
+                        ]
+                      },
+                      {
+                        "elements": [
                           {
                             "value": "$itemData#$.DecoDesc.decoNote['`@value']",
                             "type": "label"

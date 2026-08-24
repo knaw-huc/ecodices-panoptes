@@ -90,7 +90,7 @@
   "screens.manuscript-details.physical.Source.PhysDesc.Part.MusicNotation.musicNotation.`@value.info": "",
   "screens.manuscript-details.physical.Source.PhysDesc.Part.MusicNotation.note.`@value": "Music note",
   "screens.manuscript-details.physical.Source.PhysDesc.Part.MusicNotation.note.`@value.info": "",
-  "screens.manuscript-details.physical.Source.PhysDesc.Part.DecoDesc.decoNote.`@value": "Decoration",
+  "screens.manuscript-details.physical.Source.PhysDesc.Part.DecoDesc.decoNote.`@value": "Decoration description",
   "screens.manuscript-details.physical.Source.PhysDesc.Part.DecoDesc.decoNote.`@value.info": "",
   "screens.manuscript-details.physical.Source.PhysDesc.Part.DecoDesc.DecoElement": "Decoration elements",
   "screens.manuscript-details.physical.Source.PhysDesc.Part.DecoDesc.DecoElement.info": "",
