@@ -9,3 +9,251 @@
 header {
     font-family: var(--font-serif);
 }
+
+/* ------------------------------------------------------------------
+   Detail screen overrides.
+
+   Panoptes ships CSS modules with content-hashed class names (_element_nxky1_1), so these
+   use [class*="_element_"] substring matching to survive a library bump changing the hash.
+   ------------------------------------------------------------------
+*/
+html {
+    --font-sans: "Lato", system-ui, sans-serif;
+    --site-max-width: 100%;
+    --detail-panel-width: 34%;
+    --detail-sidebar-width: 16rem;
+    --detail-main-padding: 3.5rem;
+    --detail-panel-bg: #f7f5f0;
+    --detail-label: #6b7280;
+    --detail-value: #1a1a1a;
+}
+
+/* Cream image panel on the left, cream nav panel on the right, content between them */
+[class*="_detail_"] {
+    display: block;
+    position: relative;
+    max-width: none;
+    margin-top: 0;
+}
+
+[class*="_detail_"]::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: var(--detail-panel-width);
+    background: var(--detail-panel-bg);
+}
+
+/* Band behind the "on this page" nav, bleeding to the right edge of the window.
+   Its width is the sidebar column plus the padding of the main column, so its
+   left edge lines up with the start of the sidebar column. */
+[class*="_detail_"]::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: calc(var(--detail-sidebar-width) + var(--detail-main-padding));
+    background: var(--detail-panel-bg);
+}
+
+/* Back-to-search button sits at the top of the cream panel */
+[class*="_detail_"] > [class*="_side_"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--detail-panel-width);
+    padding: 1rem 2.5rem 0;
+}
+
+[class*="_detail_"] > [class*="_main_"] {
+    margin-left: var(--detail-panel-width);
+    padding: 3rem var(--detail-main-padding) 6rem;
+}
+
+/* Pull the manuscript image out of the property list into the cream panel */
+[class*="_detail_"] [class*="_element_"]:has(> img) {
+    display: block;
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    width: var(--detail-panel-width);
+    padding-inline: 2rem;
+}
+
+[class*="_detail_"] [class*="_element_"] > img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Screen chrome: drop the generic "Details" heading */
+[class*="_screen_"] {
+    max-width: none;
+    margin-inline: 0;
+    padding: 0;
+    gap: 2.5rem;
+}
+
+[class*="_screen_"] > header[class*="_header_"] {
+    display: none;
+}
+
+/* Content left, "on this page" nav pushed to the right edge */
+[class*="_bodyWithSidebar_"] {
+    grid-template-columns: minmax(0, 780px) var(--detail-sidebar-width);
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+/* ------------------------------------------------------------------
+   "On this page" sidebar navigation.
+
+   This is the Panoptes screen sidebar (config.sidebar in the details
+   API response), currently holding two icon items. It is styled here
+   as a plain text nav so it is ready for the real section list.
+
+   The heading is generated content, so it is not translatable and not
+   selectable - drop the ::before once a real heading ships.
+   ------------------------------------------------------------------ */
+[class*="_bodyWithSidebar_"] > aside[class*="_sidebar_"] {
+    order: 2;
+    display: block;
+    position: sticky;
+    top: 2rem;
+    align-self: start;
+    /* Lifts the sticky nav above ::after, which is a later sibling of _main_ */
+    z-index: 1;
+    padding-block: 0;
+    padding-inline: 2rem 0;
+    border: none;
+    background: none;
+}
+
+aside[class*="_sidebar_"]::before {
+    content: "On this page";
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--detail-label);
+}
+
+aside[class*="_sidebar_"] [class*="_section_"] {
+    display: block;
+    padding: 0;
+}
+
+aside[class*="_sidebar_"] [class*="_divider_"] {
+    display: none;
+}
+
+/* Font-size: 0 hides the unresolved icon glyph; the label restores it */
+aside[class*="_sidebar_"] [class*="_item_"] {
+    display: block;
+    width: auto;
+    height: auto;
+    padding: 0.35rem 0;
+    border-radius: 0;
+    font-size: 0;
+    color: var(--detail-label);
+}
+
+aside[class*="_sidebar_"] [class*="_item_"]:hover {
+    background: none;
+    color: var(--detail-value);
+}
+
+/* Label moves out of the hover tooltip and becomes the nav item text */
+aside[class*="_sidebar_"] [class*="_tooltip_"] {
+    position: static;
+    display: block;
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    color: inherit;
+    font-size: 1rem;
+    line-height: 1.6;
+    white-space: normal;
+    opacity: 1;
+    translate: none;
+    pointer-events: auto;
+}
+
+/* Sections: flat, no grey cards */
+[class*="_form_"] {
+    gap: 3.5rem;
+}
+
+fieldset[class*="_group_"] {
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+}
+
+fieldset[class*="_group_"] > legend[class*="_label_"] {
+    margin: 0 0 1.5rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #111;
+}
+
+/* Property rows: label left, value right */
+[class*="_column_"] {
+    gap: 0.6rem;
+}
+
+[class*="_column_"] > [class*="_element_"] {
+    display: grid;
+    grid-template-columns: 13rem minmax(0, 1fr);
+    gap: 0 1.5rem;
+    align-items: start;
+}
+
+[class*="_element_"] > label[class*="_label_"] {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--detail-label);
+}
+
+[class*="_element_"] > label[class*="_label_"] + * {
+    line-height: 1.6;
+    color: var(--detail-value);
+}
+
+[class*="_info_"]:empty {
+    display: none;
+}
+
+/* Long URLs have no break opportunity, so they stretch their flex field past the surrounding card.
+   `anywhere` also lowers min-content width, which lets the field shrink back inside it.
+   This might be pretty ugly, so perhaps a change to the external-link block is necessary, where we render links as:
+        <a href="url value">link label</a>
+ */
+[class*="_detail_"] a {
+    overflow-wrap: anywhere;
+}
+
+/* IIIF manifest and viewer links, rendered under the image by the iiifImage block */
+[class*="_detail_"] [class*="_element_"]:has(> img) .iiif-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-top: 0.9rem;
+}
+
+[class*="_detail_"] [class*="_element_"]:has(> img) .iiif-links > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    text-decoration: underline;
+}
+
+[class*="_detail_"] [class*="_element_"]:has(> img) .iiif-links > a > img {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: auto;
+}
