@@ -154,7 +154,6 @@ aside[class*="_sidebar_"] [class*="_item_"] {
     height: auto;
     padding: 0.35rem 0;
     border-radius: 0;
-    font-size: 0;
     color: var(--detail-label);
 }
 

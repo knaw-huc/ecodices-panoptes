@@ -194,5 +194,11 @@
   "screens.manuscript-details.bibliography.Source.Additional.Bibliography.Bibliography.zoteroGroupItemLink.`@value": "URL",
   "screens.manuscript-details.bibliography.Source.Additional.Bibliography.Bibliography.zoteroGroupItemLink.`@value.info": "",
   "screens.manuscript-details.bibliography.Source.Additional.Bibliography.Bibliography.pageRange.`@value": "Page range",
-  "screens.manuscript-details.bibliography.Source.Additional.Bibliography.Bibliography.pageRange.`@value.info": ""
+  "screens.manuscript-details.bibliography.Source.Additional.Bibliography.Bibliography.pageRange.`@value.info": "",
+  "manuscript-details.ecodices-sidebar.label.object": "Object description",
+  "manuscript-details.ecodices-sidebar.label.physical": "Physical description",
+  "manuscript-details.ecodices-sidebar.label.contents": "Contents",
+  "manuscript-details.ecodices-sidebar.label.history": "History",
+  "manuscript-details.ecodices-sidebar.label.bibliography": "Bibliography",
+  "manuscript-details.ecodices-sidebar.label.record-information": "Record information"
 }
