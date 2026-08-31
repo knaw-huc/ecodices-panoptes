@@ -9,6 +9,46 @@
   ],
   "actions": [
   ],
+  "sidebar": {
+    "id": "ecodices-sidebar",
+    "sections": [
+      {
+        "id": "navigation",
+        "items": [
+          {
+            "id": "object",
+            "href": "#section-object",
+            "label": "manuscript-details.ecodices-sidebar.label.object"
+          },
+          {
+            "id": "physical",
+            "href": "#section-physical",
+            "label": "manuscript-details.ecodices-sidebar.label.physical"
+          },
+          {
+            "id": "contents",
+            "href": "#section-contents",
+            "label": "manuscript-details.ecodices-sidebar.label.contents"
+          },
+          {
+            "id": "history",
+            "href": "#section-history",
+            "label": "manuscript-details.ecodices-sidebar.label.history"
+          },
+          {
+            "id": "bibliography",
+            "href": "#section-bibliography",
+            "label": "manuscript-details.ecodices-sidebar.label.bibliography"
+          },
+          {
+            "id": "record-information",
+            "href": "#section-record-information",
+            "label": "manuscript-details.ecodices-sidebar.label.record-information"
+          }
+        ]
+      }
+    ]
+  },
   "form": {
     "rows": [
       {

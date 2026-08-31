@@ -9,3 +9,373 @@
 header {
     font-family: var(--font-serif);
 }
+
+/* ------------------------------------------------------------------
+   Detail screen overrides.
+
+   Panoptes ships CSS modules with content-hashed class names (_element_nxky1_1), so these
+   use [class*="_element_"] substring matching to survive a library bump changing the hash.
+   ------------------------------------------------------------------
+*/
+html {
+    --font-sans: "Lato", system-ui, sans-serif;
+    --site-max-width: 100%;
+    --detail-panel-width: 34%;
+    --detail-sidebar-width: 16rem;
+    --detail-main-padding: 3.5rem;
+    --detail-panel-bg: #f7f5f0;
+    --detail-label: #5c5c5c;
+    --detail-value: #1a1a1a;
+}
+
+/* Cream image panel on the left, cream nav panel on the right, content between them */
+[class*="_detail_"] {
+    display: grid;
+    grid-template-columns: var(--detail-panel-width) minmax(0, 1fr);
+    position: relative;
+    max-width: none;
+    margin-top: 0;
+}
+
+[class*="_detail_"]::before {
+    content: "";
+    grid-column: 1;
+    grid-row: 1 / -1;
+    background: var(--detail-panel-bg);
+}
+
+/* Band behind the "on this page" nav, bleeding to the right edge of the window.
+   Its width is the sidebar column plus the padding of the main column, so its
+   left edge lines up with the start of the sidebar column. */
+[class*="_detail_"]::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: calc(var(--detail-sidebar-width) + var(--detail-main-padding));
+    background: var(--detail-panel-bg);
+}
+
+/* Back-to-search + manuscript image. Sticky on wide screens so the image
+   stays in view while the record scrolls, without using position: fixed. */
+[class*="_detail_"] > [class*="_side_"] {
+    grid-column: 1;
+    grid-row: 1;
+    position: sticky;
+    top: 0;
+    align-self: start;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: auto;
+    padding: 1rem 2rem 2rem;
+}
+
+[class*="_detail_"] > [class*="_main_"] {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+    margin-left: 0;
+    padding: 3rem var(--detail-main-padding) 6rem;
+}
+
+.detail-media > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: calc(100dvh - 6rem);
+}
+
+/* The form still wraps an empty slot after the thumbnail is portaled out */
+[class*="_column_"] > [class*="_element_"]:empty {
+    display: none;
+}
+
+/* Screen chrome: drop the generic "Details" heading */
+[class*="_screen_"] {
+    max-width: none;
+    margin-inline: 0;
+    padding: 0;
+    gap: 2.5rem;
+}
+
+[class*="_screen_"] > header[class*="_header_"] {
+    display: none;
+}
+
+/* Content left, "on this page" nav pushed to the right edge */
+[class*="_bodyWithSidebar_"] {
+    grid-template-columns: minmax(0, 780px) var(--detail-sidebar-width);
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+/* ------------------------------------------------------------------
+   "On this page" sidebar navigation.
+
+   This is the Panoptes screen sidebar (config.sidebar in the details
+   API response), currently holding two icon items. It is styled here
+   as a plain text nav so it is ready for the real section list.
+
+   The heading is generated content, so it is not translatable and not
+   selectable - drop the ::before once a real heading ships.
+   ------------------------------------------------------------------ */
+[class*="_bodyWithSidebar_"] > aside[class*="_sidebar_"] {
+    order: 2;
+    display: block;
+    position: sticky;
+    top: 2rem;
+    align-self: start;
+    /* Lifts the sticky nav above ::after, which is a later sibling of _main_ */
+    z-index: 1;
+    padding-block: 0;
+    padding-inline: 2rem 0;
+    border: none;
+    background: none;
+}
+
+aside[class*="_sidebar_"]::before {
+    content: "On this page";
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--detail-label);
+}
+
+aside[class*="_sidebar_"] [class*="_section_"] {
+    display: block;
+    padding: 0;
+}
+
+aside[class*="_sidebar_"] [class*="_divider_"] {
+    display: none;
+}
+
+/* Font-size: 0 hides the unresolved icon glyph; the label restores it */
+aside[class*="_sidebar_"] [class*="_item_"] {
+    display: block;
+    width: auto;
+    height: auto;
+    padding: 0.35rem 0;
+    border-radius: 0;
+    color: var(--detail-label);
+}
+
+aside[class*="_sidebar_"] [class*="_item_"]:hover {
+    background: none;
+    color: var(--detail-value);
+}
+
+/* Label moves out of the hover tooltip and becomes the nav item text */
+aside[class*="_sidebar_"] [class*="_tooltip_"] {
+    position: static;
+    display: block;
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    color: inherit;
+    font-size: 1rem;
+    line-height: 1.6;
+    white-space: normal;
+    opacity: 1;
+    translate: none;
+    pointer-events: auto;
+}
+
+/* ------------------------------------------------------------------
+   Tablet landscape and smaller (below 80rem / 1280px).
+
+   Image and "On this page" share the left cream column: image first,
+   then the section links. The right nav band is dropped.
+   ------------------------------------------------------------------ */
+@media (width < 80rem) {
+    [class*="_detail_"] {
+        grid-template-rows: max-content max-content 1fr;
+        row-gap: 1.5rem;
+    }
+
+    [class*="_detail_"]::after {
+        display: none;
+    }
+
+    [class*="_detail_"] > [class*="_side_"] {
+        position: static;
+        grid-row: 1;
+    }
+
+    [class*="_detail_"] > [class*="_main_"] {
+        display: contents;
+    }
+
+    [class*="_screen_"] {
+        display: contents;
+    }
+
+    [class*="_bodyWithSidebar_"] {
+        display: contents;
+        grid-template-columns: unset;
+    }
+
+    [class*="_bodyWithSidebar_"] > aside[class*="_sidebar_"] {
+        grid-column: 1;
+        grid-row: 2;
+        position: static;
+        width: auto;
+        padding-inline: 2rem;
+        margin: 0;
+    }
+
+    main[class*="_content_"] {
+        grid-column: 2;
+        grid-row: 1 / -1;
+        min-width: 0;
+        padding: 3rem var(--detail-main-padding) 6rem;
+    }
+}
+
+/* Sections: flat, no grey cards */
+[class*="_form_"] {
+    gap: 3.5rem;
+}
+
+fieldset[class*="_group_"] {
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+}
+
+fieldset[class*="_group_"] > legend[class*="_label_"] {
+    margin: 0 0 1.5rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #111;
+}
+
+/* Property rows: label left, value right */
+[class*="_column_"] {
+    gap: 0.6rem;
+}
+
+/* Property rows: label left, value right (top-level and nested) */
+[class*="_detail_"] [class*="_element_"]:has(> label[class*="_label_"]):not(:has([class*="_arrayInput"])):not(:has(> img)) {
+    display: flex;
+    flex-direction: row;
+    gap: 0 1.5rem;
+    align-items: start;
+}
+
+[class*="_detail_"] [class*="_element_"]:has(> label[class*="_label_"]):not(:has([class*="_arrayInput"])):not(:has(> img)) > label[class*="_label_"] {
+    flex: 0 0 8rem;
+}
+
+[class*="_element_"] > label[class*="_label_"] {
+    font-size: .85rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--detail-label);
+}
+
+[class*="_element_"] > label[class*="_label_"] + * {
+    line-height: 1.6;
+    color: var(--detail-value);
+}
+
+/* Property rows: stack label above value on small screens */
+@media (width < 48rem) {
+    [class*="_detail_"] [class*="_element_"]:has(> label[class*="_label_"]):not(:has([class*="_arrayInput"])):not(:has(> img)) {
+        flex-direction: column;
+        gap: 0.15rem;
+    }
+
+    [class*="_detail_"] [class*="_element_"]:has(> label[class*="_label_"]):not(:has([class*="_arrayInput"])):not(:has(> img)) > label[class*="_label_"] {
+        flex: none;
+    }
+}
+
+[class*="_info_"]:empty {
+    display: none;
+}
+
+/* Long URLs have no break opportunity, so they stretch their flex field past the surrounding card.
+   `anywhere` also lowers min-content width, which lets the field shrink back inside it.
+   This might be pretty ugly, so perhaps a change to the external-link block is necessary, where we render links as:
+        <a href="url value">link label</a>
+ */
+[class*="_detail_"] a {
+    overflow-wrap: anywhere;
+}
+
+/* IIIF manifest and viewer links, rendered under the image by the iiifImage block */
+/* IIIF manifest and viewer links, rendered under the image */
+.detail-media .iiif-links,
+[class*="_detail_"] [class*="_element_"]:has(> img) .iiif-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-top: 0.9rem;
+}
+
+.detail-media .iiif-links > a,
+[class*="_detail_"] [class*="_element_"]:has(> img) .iiif-links > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    text-decoration: underline;
+}
+
+.detail-media .iiif-links > a > img,
+[class*="_detail_"] [class*="_element_"]:has(> img) .iiif-links > a > img {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: auto;
+}
+
+
+
+
+
+[class*="_column_"] > [class*="_element_"]:has([class*="_arrayInput"]) {
+    display: flex;
+    flex-direction: column;
+}
+
+[class*="arrayItemField"] {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+[class*="_arrayItem_"] {
+    width: calc(100% + 20px);
+    margin-top: 10px;
+    padding-left: 10px;
+    transform: translateX(-10px);
+    background-color: var(--detail-panel-bg);
+    border-radius: 3px;
+    border: none;
+}
+
+[class*="_arrayItem_"] [class*="_arrayItem_"] {
+    width: 100%;
+    margin-top: 0rem;
+    padding-top: 0rem;
+    padding-left: 1rem;
+    transform: none;
+    
+    border-radius: 0;
+    border-left: 1px solid hsl(43, 30%, 65%);
+}
+
+
+
+[class*="_arrayInput_"] {
+    width: 100%;
+}
+
+
+

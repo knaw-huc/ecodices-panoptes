@@ -5,7 +5,7 @@ export interface IIIFLinkBlock extends Block {
     value: string;
 }
 
-const viewer_base_url = "https://access.ecodices.nl/universalviewer/#?manifest="
+export const viewer_base_url = "https://access.ecodices.nl/universalviewer/#?manifest="
 
 export default function IIIFLinkBlockRenderer({block}: {block: IIIFLinkBlock}) {
     const {value} = block as IIIFLinkBlock;
