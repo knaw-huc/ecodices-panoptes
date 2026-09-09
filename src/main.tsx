@@ -17,6 +17,8 @@ import PersonBlockRenderer from "./components/blocks/person";
 import PageRangeBlockRenderer from "./components/blocks/pageRange";
 import IIIFImageBlockRenderer from "./components/blocks/iiifImage";
 import IIIFLinkBlockRenderer from "./components/blocks/iiifLink";
+import PageStructureBlockRenderer from "./components/blocks/pageStructure";
+import EcodicesDetail from "./components/EcodicesDetail";
 
 const panoptesUrl = '$VITE_PANOPTES_URL';
 const panoptesIsEmbedded = '$VITE_PANOPTES_IS_EMBEDDED';
@@ -54,6 +56,7 @@ const blocks = new Map<string, FC<{block: Block}>>([
     ["tags", TagsBlockRenderer],
     ["iiifImage", IIIFImageBlockRenderer],
     ["iiifLink", IIIFLinkBlockRenderer],
+    ["pageStructure", PageStructureBlockRenderer],
 ]);
 
 const root = createPanoptesRoot<IIIFResultCardProps>(document.getElementById('root')!, {
@@ -76,6 +79,7 @@ const root = createPanoptesRoot<IIIFResultCardProps>(document.getElementById('ro
         }
     ],
     translateFn: createTranslate(),
+    detailComponent: EcodicesDetail,
     resultCardRenderer: (result, link) => <IIIFResultCard {...result} link={link}/>,
     blocks: blocks
 });

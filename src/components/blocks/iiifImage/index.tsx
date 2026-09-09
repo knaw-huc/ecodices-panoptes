@@ -5,6 +5,8 @@ import {globalVault, getImageFromTileSource, getThumbnail, Vault} from '@iiif/he
 import type {Block} from '@knaw-huc/panoptes-react';
 import type {IIIFExternalWebResource, ImageService} from '@iiif/presentation-3';
 
+import {viewer_base_url} from '../iiifLink';
+
 const vault = globalVault() as Vault;
 const cache = new Map<string, Promise<string | null>>();
 
@@ -97,14 +99,15 @@ function ManifestThumbnail({manifestUri, width, height}: IIIFImageBlockValue) {
     }
 
     const manifestHref = normalizeManifestUri(manifestUri);
+    const viewerHref = viewer_base_url + manifestHref;
 
     const media = (
         <div className="detail-media">
             <img src={imageHref} width={width} height={height} alt="Manuscript thumbnail"/>
             <div className="iiif-links">
-                <a href={manifestHref} target="_blank" rel="noopener noreferrer">
+                <a href={viewerHref} target="_blank" rel="noopener noreferrer">
                     <img src="/iiif-logo.png" alt="" width={18} height={16} aria-hidden="true"/>
-                    IIIF manifest
+                    Open IIIF viewer
                 </a>
             </div>
         </div>

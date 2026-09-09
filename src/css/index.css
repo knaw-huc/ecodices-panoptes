@@ -26,6 +26,13 @@ html {
     --detail-panel-bg: #f7f5f0;
     --detail-label: #5c5c5c;
     --detail-value: #1a1a1a;
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 }
 
 /* Cream image panel on the left, cream nav panel on the right, content between them */
@@ -89,6 +96,10 @@ html {
 /* The form still wraps an empty slot after the thumbnail is portaled out */
 [class*="_column_"] > [class*="_element_"]:empty {
     display: none;
+}
+
+[class*="_element_"]:has([data-page-structure-root]) {
+    width: 100%;
 }
 
 /* Screen chrome: drop the generic "Details" heading */
@@ -375,6 +386,16 @@ fieldset[class*="_group_"] > legend[class*="_label_"] {
 
 [class*="_arrayInput_"] {
     width: 100%;
+}
+
+[id^="manuscript-unit-"] {
+    scroll-margin-top: 2rem;
+    border-left: 2px solid #d1b977;
+}
+
+[id^="content-item-"] {
+    scroll-margin-top: 2rem;
+    border-left: 2px solid #4aa09a;
 }
 
 
