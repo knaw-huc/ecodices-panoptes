@@ -8,10 +8,10 @@ export interface PersonBlockValue {
 
 export interface PersonBlock extends Block {
     type: 'person';
-    value: object[];
+    value: any[];
 }
 
-function displayPerson(person: object) {
+function displayPerson(person: any) {
     const type = person.personType['@value']
     const name = person.name ? person.name['@value'] : person.persName ? person.persName[0]['@value'] : "configuration error"
 
