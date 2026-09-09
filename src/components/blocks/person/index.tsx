@@ -12,7 +12,7 @@ export interface PersonBlock extends Block {
 }
 
 function displayPerson(person: any) {
-    const type = person.personType['@value']
+    const type = person.personType ? person.personType['@value'] : ""
     const name = person.name ? person.name['@value'] : person.persName ? person.persName[0]['@value'] : "configuration error"
 
     return <span>{name} ({type})</span>
