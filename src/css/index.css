@@ -398,5 +398,44 @@ fieldset[class*="_group_"] > legend[class*="_label_"] {
     border-left: 2px solid #4aa09a;
 }
 
+[class*="_card_"] > [class*="_link_"] > [class*="_body_"]:has(> [class*="_thumbnail_"]) {
+    gap: 2rem;
+}
+
+@media (width >= 48rem) {
+    [class*="_card_"] > [class*="_link_"] > [class*="_body_"]:has(> [class*="_thumbnail_"]) {
+        grid-template-rows: auto;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    }
+
+    [class*="_card_"] > [class*="_link_"] > [class*="_body_"] > [class*="_thumbnail_"] {
+        grid-row: 1;
+        grid-column: 1;
+        width: auto;
+        min-width: 0;
+    }
+
+    [class*="_card_"] > [class*="_link_"] > [class*="_body_"] > [class*="_main_"] {
+        grid-row: 1;
+        grid-column: 2;
+    }
+
+    [class*="_card_"] [class*="_thumbnail_"] > * {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+@media (width < 48rem) {
+    [class*="_card_"] [class*="_thumbnail_"] {
+        justify-content: flex-start;
+    }
+
+    [class*="_card_"] [class*="_thumbnail_"] .detail-media > img {
+        width: 50vw;
+        max-width: 100%;
+        height: auto;
+    }
+}
 
 
