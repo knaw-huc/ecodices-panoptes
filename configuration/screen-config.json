@@ -238,11 +238,7 @@
                       {
                         "elements": [
                           {
-                            "value": {
-                              "name": "$itemData#$.HandDesc.Person.name['`@value']",
-                              "uri": "$itemData#$.HandDesc.Person.uri['`@value']",
-                              "personType": "$itemData#$.HandDesc.Person.personType['`@value']"
-                            },
+                            "value": "$itemData#$.HandDesc.Person",
                             "type": "person",
                             "label": "screens.manuscript-details.physical.Source.PhysDesc.Part.HandDesc.Person"
                           }
@@ -319,11 +315,7 @@
                 }
               },
               {
-                "value": {
-                  "name": "$itemData#$.Source.PhysDesc.BindingDesc.Person.name['`@value']",
-                  "uri": "$itemData#$.Source.PhysDesc.BindingDesc.Person.uri['`@value']",
-                  "personType": "$itemData#$.Source.PhysDesc.BindingDesc.Person.personType['`@value']"
-                },
+                "value": "$data#$.Source.PhysDesc.BindingDesc.Person",
                 "type": "person",
                 "label": "screens.manuscript-details.physical.Source.PhysDesc.BindingDesc.Person"
               }
@@ -450,11 +442,7 @@
                             "label": "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Colophon.pageRange"
                           },
                           {
-                            "value": {
-                              "name": "$data#$.Colophon.Person.name['`@value']",
-                              "uri": "$data#$.Colophon.Person.uri['`@value']",
-                              "personType": "$data#$.Colophon.Person.personType['`@value']"
-                            },
+                            "value": "$data#$.Colophon.Person",
                             "type": "person",
                             "label": "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Colophon.person"
                           },
@@ -517,11 +505,7 @@
                             "type": "label"
                           },
                           {
-                            "value": {
-                              "name": "$itemData#$.PersName.persName['`@value']",
-                              "uri": "$itemData#$.PersName.personUri['`@value']",
-                              "personType": "$itemData#$.PersName.personType['`@value']"
-                            },
+                            "value": "$itemData#$.PersName",
                             "type": "person",
                             "label": "screens.manuscript-details.history.Source.History.Provenance.person"
                           }
@@ -544,11 +528,7 @@
                             "type": "label"
                           },
                           {
-                            "value": {
-                              "name": "$itemData#$.PersName.persName['`@value']",
-                              "uri": "$itemData#$.PersName.personUri['`@value']",
-                              "personType": "$itemData#$.PersName.personType['`@value']"
-                            },
+                            "value": "$itemData#$.PersName",
                             "type": "person",
                             "label": "screens.manuscript-details.history.Source.History.Acquisition.person"
                           }

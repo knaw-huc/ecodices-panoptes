@@ -210,5 +210,9 @@
   "manuscript-details.ecodices-sidebar.label.contents": "Contents",
   "manuscript-details.ecodices-sidebar.label.history": "History",
   "manuscript-details.ecodices-sidebar.label.bibliography": "Bibliography",
-  "manuscript-details.ecodices-sidebar.label.record-information": "Record information"
+  "manuscript-details.ecodices-sidebar.label.record-information": "Record information",
+  "screens.manuscript-details.history.Source.History.Acquisition.PersName.info": "",
+  "screens.manuscript-details.history.Source.History.Provenance.PersName.info": "",
+  "screens.manuscript-details.contents.Colophon.Person.info": "",
+  "screens.manuscript-details.physical.Source.PhysDesc.BindingDesc.Person.info": ""
 }
