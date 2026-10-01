@@ -1,8 +1,11 @@
-import {Suspense, use} from 'react';
+import {Suspense, use, useLayoutEffect, useState} from 'react';
+import {createPortal} from 'react-dom';
 import {globalVault, getImageFromTileSource, getThumbnail, Vault} from '@iiif/helpers';
 
 import type {Block} from '@knaw-huc/panoptes-react';
 import type {IIIFExternalWebResource, ImageService} from '@iiif/presentation-3';
+
+import {viewer_base_url} from '../iiifLink';
 
 const vault = globalVault() as Vault;
 const cache = new Map<string, Promise<string | null>>();
@@ -26,10 +29,13 @@ function getImageHrefPromise(manifestUri: string, width: number, height?: number
     return cache.get(key)!;
 }
 
+function normalizeManifestUri(manifestUri: string) {
+    return manifestUri.startsWith('http') ? manifestUri : `https://${manifestUri}`;
+}
+
 async function getImageHref(manifestUri: string, width: number, height?: number) {
     try {
-        if (!manifestUri.startsWith('http'))
-            manifestUri = `https://${manifestUri}`
+        manifestUri = normalizeManifestUri(manifestUri);
 
         const manifest = await vault.loadManifest(manifestUri);
         if (!manifest)
@@ -77,6 +83,12 @@ export default function IIIFImageBlockRenderer({block: {value}}: { block: IIIFIm
 }
 
 function ManifestThumbnail({manifestUri, width, height}: IIIFImageBlockValue) {
+    const [side, setSide] = useState<Element | null>(null);
+
+    useLayoutEffect(() => {
+        setSide(document.querySelector('[class*="_detail_"] > [class*="_side_"]'));
+    }, []);
+
     if (!width) {
         width = 400;
     }
@@ -86,7 +98,24 @@ function ManifestThumbnail({manifestUri, width, height}: IIIFImageBlockValue) {
         return <></>;
     }
 
-    return (
-        <img src={imageHref} width={width} height={height} alt={manifestUri}/>
+    const manifestHref = normalizeManifestUri(manifestUri);
+    const viewerHref = viewer_base_url + manifestHref;
+
+    const media = (
+        <div className="detail-media">
+            <img src={imageHref} width={width} height={height} alt="Manuscript thumbnail"/>
+            <div className="iiif-links">
+                <a href={viewerHref} target="_blank" rel="noopener noreferrer">
+                    <img src="/iiif-logo.png" alt="" width={18} height={16} aria-hidden="true"/>
+                    Open IIIF viewer
+                </a>
+            </div>
+        </div>
     );
+
+    if (side) {
+        return createPortal(media, side);
+    }
+
+    return media;
 }

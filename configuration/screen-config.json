@@ -9,6 +9,46 @@
   ],
   "actions": [
   ],
+  "sidebar": {
+    "id": "ecodices-sidebar",
+    "sections": [
+      {
+        "id": "navigation",
+        "items": [
+          {
+            "id": "object",
+            "href": "#section-object",
+            "label": "manuscript-details.ecodices-sidebar.label.object"
+          },
+          {
+            "id": "physical",
+            "href": "#section-physical",
+            "label": "manuscript-details.ecodices-sidebar.label.physical"
+          },
+          {
+            "id": "contents",
+            "href": "#section-contents",
+            "label": "manuscript-details.ecodices-sidebar.label.contents"
+          },
+          {
+            "id": "history",
+            "href": "#section-history",
+            "label": "manuscript-details.ecodices-sidebar.label.history"
+          },
+          {
+            "id": "bibliography",
+            "href": "#section-bibliography",
+            "label": "manuscript-details.ecodices-sidebar.label.bibliography"
+          },
+          {
+            "id": "record-information",
+            "href": "#section-record-information",
+            "label": "manuscript-details.ecodices-sidebar.label.record-information"
+          }
+        ]
+      }
+    ]
+  },
   "form": {
     "rows": [
       {
@@ -50,6 +90,23 @@
               {
                 "value": "$data#$.Source.ManuscriptDescription.Contents.textLang.otherLang[*]['`@value']",
                 "type": "tags"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "displayType": "group",
+        "groupId": "structure",
+        "columns": [
+          {
+            "elements": [
+              {
+                "type": "pageStructure",
+                "value": {
+                  "parts": "$data#$.Source.PhysDesc.Part",
+                  "items": "$data#$.Source.ManuscriptDescription.Contents.Item"
+                }
               }
             ]
           }
@@ -181,11 +238,7 @@
                       {
                         "elements": [
                           {
-                            "value": {
-                              "name": "$itemData#$.HandDesc.Person.name['`@value']",
-                              "uri": "$itemData#$.HandDesc.Person.uri['`@value']",
-                              "personType": "$itemData#$.HandDesc.Person.personType['`@value']"
-                            },
+                            "value": "$itemData#$.HandDesc.Person",
                             "type": "person",
                             "label": "screens.manuscript-details.physical.Source.PhysDesc.Part.HandDesc.Person"
                           }
@@ -262,11 +315,7 @@
                 }
               },
               {
-                "value": {
-                  "name": "$itemData#$.Source.PhysDesc.BindingDesc.Person.name['`@value']",
-                  "uri": "$itemData#$.Source.PhysDesc.BindingDesc.Person.uri['`@value']",
-                  "personType": "$itemData#$.Source.PhysDesc.BindingDesc.Person.personType['`@value']"
-                },
+                "value": "$data#$.Source.PhysDesc.BindingDesc.Person",
                 "type": "person",
                 "label": "screens.manuscript-details.physical.Source.PhysDesc.BindingDesc.Person"
               }
@@ -393,11 +442,7 @@
                             "label": "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Colophon.pageRange"
                           },
                           {
-                            "value": {
-                              "name": "$data#$.Colophon.Person.name['`@value']",
-                              "uri": "$data#$.Colophon.Person.uri['`@value']",
-                              "personType": "$data#$.Colophon.Person.personType['`@value']"
-                            },
+                            "value": "$data#$.Colophon.Person",
                             "type": "person",
                             "label": "screens.manuscript-details.contents.Source.ManuscriptDescription.Contents.Item.Colophon.person"
                           },
@@ -460,11 +505,7 @@
                             "type": "label"
                           },
                           {
-                            "value": {
-                              "name": "$itemData#$.PersName.persName['`@value']",
-                              "uri": "$itemData#$.PersName.personUri['`@value']",
-                              "personType": "$itemData#$.PersName.personType['`@value']"
-                            },
+                            "value": "$itemData#$.PersName",
                             "type": "person",
                             "label": "screens.manuscript-details.history.Source.History.Provenance.person"
                           }
@@ -487,11 +528,7 @@
                             "type": "label"
                           },
                           {
-                            "value": {
-                              "name": "$itemData#$.PersName.persName['`@value']",
-                              "uri": "$itemData#$.PersName.personUri['`@value']",
-                              "personType": "$itemData#$.PersName.personType['`@value']"
-                            },
+                            "value": "$itemData#$.PersName",
                             "type": "person",
                             "label": "screens.manuscript-details.history.Source.History.Acquisition.person"
                           }
