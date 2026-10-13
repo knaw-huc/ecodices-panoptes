@@ -19,12 +19,15 @@ import IIIFImageBlockRenderer from "./components/blocks/iiifImage";
 import IIIFLinkBlockRenderer from "./components/blocks/iiifLink";
 import PageStructureBlockRenderer from "./components/blocks/pageStructure";
 import EcodicesDetail from "./components/EcodicesDetail";
+import {createRoute} from '@tanstack/react-router';
+import {PersonsPage} from "./pages/PersonsPage.tsx";
 
 const panoptesUrl = '$VITE_PANOPTES_URL';
 const panoptesIsEmbedded = '$VITE_PANOPTES_IS_EMBEDDED';
 const panoptesSearchPath = '$VITE_PANOPTES_SEARCH_PATH';
 const panoptesDetailPath = '$VITE_PANOPTES_DETAIL_PATH';
 const panoptesDataset = '$VITE_PANOPTES_DATASET';
+const ecodicesLDBackend = '$VITE_LD_BACKEND';
 
 const getVar = (envVariable: string): string | undefined =>
     envVariable.startsWith('$VITE_')
@@ -73,6 +76,11 @@ const root = createPanoptesRoot<IIIFResultCardProps>(document.getElementById('ro
             "labelKey": "pages.search"
         },
         {
+            "label": "about",
+            "href": "https://ecodices.nl",
+            "labelKey": "pages.about"
+        },
+        {
             "label": "persons",
             "href": "/persons",
             "labelKey": "pages.persons"
@@ -81,6 +89,17 @@ const root = createPanoptesRoot<IIIFResultCardProps>(document.getElementById('ro
     translateFn: createTranslate(),
     detailComponent: EcodicesDetail,
     resultCardRenderer: (result, link) => <IIIFResultCard {...result} link={link}/>,
-    blocks: blocks
+    blocks: blocks,
+    routes: (rootRoute) => [
+        createRoute({
+            path: '/persons',
+            getParentRoute: () => rootRoute,
+            loader: async () => {
+                const result = await fetch(`${getVar(ecodicesLDBackend)}/persons`)
+                return {persons: (await result.json())["persons"]}
+            },
+            component: PersonsPage,
+        }),
+    ],
 });
 root.render(<PanoptesRouterProvider/>);

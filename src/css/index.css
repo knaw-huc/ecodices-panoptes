@@ -439,3 +439,20 @@ fieldset[class*="_group_"] > legend[class*="_label_"] {
 }
 
 
+.persons-list .persons-list-item {
+    margin-bottom: 1rem;
+
+    ul {
+        margin-left: 1rem;
+    }
+}
+
+.role-label {
+    display: inline-block;
+    border-radius: .2rem;
+    background-color: var(--color-support-001);
+    color: var(--color-header-text);
+    font-size: .8em;
+    padding: 0.2rem 0.4rem;
+    margin-right: 0.2rem;
+}
